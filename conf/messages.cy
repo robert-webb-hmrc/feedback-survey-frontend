@@ -27,15 +27,15 @@ mainService.vat=TAW
 mainService.corporation_tax=Treth Gorfforaeth
 mainService.construction_industry_scheme_cis=Cynllun y Diwydiant Adeiladu (CIS)
 mainService.ec_sales=Gwerthiannau yn y GE
-mainService.other_please_specify=Arall. Rhowch fanylion:
+mainService.other_please_specify=Arall. rhowch fanylion:
 
 mainThing.what_was_the_main_thing_you_needed_to_do_=Beth oedd y prif beth yr oedd angen i chi ei wneud heddiw? Er enghraifft, newid eich cyfeiriad
 
 ableToDo.were_you_able_to_do_what_you_needed_to_do_today=Oeddech chi’n gallu gwneud yr hyn yr oedd angen i chi ei wneud heddiw?
 
 howEasyWasIt.how_easy_was_it_for_you_to_=Pa mor hawdd oedd hi i wneud yr hyn yr oedd angen i chi ei wneud heddiw?
-howEasyWasIt.very_easy=Hawdd Iawn
-howEasyWasIt.very_difficult=Anodd Iawn
+howEasyWasIt.very_easy=Hawdd iawn
+howEasyWasIt.very_difficult=Anodd iawn
 howEasyWasIt.why_did_you_give_this_score=Pam gwnaethoch roi’r sgôr hon?
 
 howDidYouFeel.overall_how_did_you_feel_about_the_service_you_received_today=At ei gilydd, beth oedd eich barn am y gwasanaeth a gawsoch heddiw?

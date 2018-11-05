@@ -21,21 +21,21 @@ mainService.we_use_your_feedback_to_improve_our_services_=We use your feedback t
 mainService.see_the_hmrc_privacy_notice_=See the <a href="{0}" target="_blank">HMRC Privacy Notice</a> for details about how we collect, use, protect and secure your personal information.
 mainService.the_survey_takes_about_1_minute_to_complete_=The survey takes about 1 minute to complete. There are 4 questions and they are all optional.
 mainService.what_was_the_main_service_you_used_today=What was the main service you used today?
-mainService.self_assessment=Self assessment
+mainService.self_assessment=Self Assessment
 mainService.PAYE_for_employers=PAYE for employers
 mainService.vat=VAT
 mainService.corporation_tax=Corporation Tax
 mainService.construction_industry_scheme_cis=Construction Industry Scheme (CIS)
 mainService.ec_sales=EC Sales
-mainService.other_please_specify=Other. Please specify:
+mainService.other_please_specify=Other. please specify:
 
 mainThing.what_was_the_main_thing_you_needed_to_do_=What was the main thing you needed to do today? For example, change your address
 
 ableToDo.were_you_able_to_do_what_you_needed_to_do_today=Were you able to do what you needed to do today?
 
 howEasyWasIt.how_easy_was_it_for_you_to_=How easy was it for you to do what you needed to do today?
-howEasyWasIt.very_easy=Very Easy
-howEasyWasIt.very_difficult=Very Difficult
+howEasyWasIt.very_easy=Very easy
+howEasyWasIt.very_difficult=Very difficult
 howEasyWasIt.why_did_you_give_this_score=Why did you give this score?
 
 howDidYouFeel.overall_how_did_you_feel_about_the_service_you_received_today=Overall, how did you feel about the service you received today?
