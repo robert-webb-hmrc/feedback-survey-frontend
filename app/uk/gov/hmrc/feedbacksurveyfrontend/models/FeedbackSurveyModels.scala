@@ -21,57 +21,29 @@ import play.api.data.Forms._
 import play.api.libs.json.Json
 
 
-case class MainService(mainService: Option[String], mainServiceOther: Option[String])
+case class Survey(mainService: Option[String],
+                  mainServiceOther: Option[String],
+                  mainThing: Option[String],
+                  ableToDoWhatNeeded: Option[String],
+                  howEasyWasIt: Option[String],
+                  whyDidYouGiveThisScore: Option[String],
+                  howDidYouFeel: Option[String])
 
-object MainService {
-  implicit val format = Json.format[MainService]
+object Survey {
+  implicit val format = Json.format[Survey]
 }
-
-case class MainThing(mainThing: Option[String])
-
-object MainThing {
-  implicit val format = Json.format[MainThing]
-}
-
-case class AbleToDo(ableToDoWhatNeeded: Option[String])
-
-object AbleToDo {
-  implicit val format = Json.format[AbleToDo]
-}
-
-case class HowEasyWasIt(howEasyWasIt: Option[String],
-                        whyDidYouGiveThisScore: Option[String])
-
-object HowEasyWasIt {
-  implicit val format = Json.format[HowEasyWasIt]
-}
-
-case class HowDidYouFeel(howDidYouFeel: Option[String])
-
-object HowDidYouFeel {
-  implicit val format = Json.format[HowDidYouFeel]
-}
-
 
 object formMappings {
 
-  val mainServiceForm = Form(mapping(
+  val surveyForm = Form(mapping(
     "mainService" -> optional(text),
-    "mainServiceOther" -> optional(text)
-  )(MainService.apply)(MainService.unapply))
-
-  val mainThingForm = Form(mapping(
-    "mainThing" -> optional(text))(MainThing.apply)(MainThing.unapply))
-
-  val ableToDoForm = Form(mapping(
-    "ableToDoWhatNeeded" -> optional(text))(AbleToDo.apply)(AbleToDo.unapply))
-
-  val howEasyWasItForm = Form(mapping(
+    "mainServiceOther" -> optional(text),
+    "mainThing" -> optional(text),
+    "ableToDoWhatNeeded" -> optional(text),
     "howEasyWasIt" -> optional(text),
-    "whyDidYouGiveThisScore" -> optional(text))(HowEasyWasIt.apply)(HowEasyWasIt.unapply))
-
-  val howDidYouFeelForm = Form(mapping(
-    "howDidYouFeel" -> optional(text))(HowDidYouFeel.apply)(HowDidYouFeel.unapply))
+    "whyDidYouGiveThisScore" -> optional(text),
+    "howDidYouFeel" -> optional(text)
+  )(Survey.apply)(Survey.unapply))
 
   def validInputCharacters(field: String, regXValue: String) = {
     if (field.matches(regXValue)) true else false

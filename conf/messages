@@ -4,6 +4,7 @@ gov_uk=GOV.UK
 generic.yes=Yes
 generic.no=No
 generic.continue=Continue
+generic.submit=Submit
 generic.error.title=Sorry, we’re experiencing technical difficulties
 generic.error.status=There has been a problem with your application
 generic.unauthorised.heading=Sorry, we’re experiencing technical difficulties
@@ -19,7 +20,8 @@ give_feedback=Give feedback
 mainService.what_was_the_main_service_you_used_today=What was the main service you used today?
 mainService.we_use_your_feedback_to_improve_our_services_=We use your feedback to improve our services. To better understand it, we may link your feedback to other information we hold about you, like gender and age.
 mainService.see_the_hmrc_privacy_notice_=See the <a href="{0}" target="_blank">HMRC Privacy Notice</a> for details about how we collect, use, protect and secure your personal information.
-mainService.the_survey_takes_about_1_minute_to_complete_=The survey takes about 1 minute to complete. There are 4 questions and they are all optional.
+mainService.the_survey_takes_about_1_minute_to_complete_5=The survey takes about 1 minute to complete. There are 5 questions and they are all optional.
+mainService.the_survey_takes_about_1_minute_to_complete_4=The survey takes about 1 minute to complete. There are 4 questions and they are all optional.
 mainService.what_was_the_main_service_you_used_today=What was the main service you used today?
 mainService.self_assessment=Self Assessment
 mainService.PAYE_for_employers=PAYE for employers
@@ -39,8 +41,8 @@ howEasyWasIt.very_difficult=Very difficult
 howEasyWasIt.why_did_you_give_this_score=Why did you give this score?
 
 howDidYouFeel.overall_how_did_you_feel_about_the_service_you_received_today=Overall, how did you feel about the service you received today?
-howDidYouFeel.very_satisfied=Very Satisfied
-howDidYouFeel.very_dissatisfied=Very Dissatisfied
+howDidYouFeel.very_satisfied=Very satisfied
+howDidYouFeel.very_dissatisfied=Very dissatisfied
 
 thankYou.thank_you_for_your_feedback=Thank you for your feedback
 thankYou.we_will_use_your_feedback_to_make_our_services_better=We will use your feedback to make our services better.

@@ -40,80 +40,39 @@ trait FeedbackSurveyController extends FrontendController with LoggingUtils with
 
   def originService: OriginService
 
-  def mainService(origin: String): Action[AnyContent] = Action { implicit request =>
-    Ok(html.feedbackSurvey.mainService(formMappings.mainServiceForm, origin))
+  def survey(origin: String, taxAccount: Option[String]): Action[AnyContent] = Action { implicit request =>
+    Ok(html.feedbackSurvey.survey(formMappings.surveyForm, origin, taxAccount))
   }
 
-  def mainServiceContinue(origin: String): Action[MainService] = Action (parse.form(formMappings.mainServiceForm)) { implicit request =>
-    val whatWasTheMainService = request.body.mainService
-    val whatWasTheMainServiceOther = request.body.mainServiceOther
-    whatWasTheMainServiceOther match {
-      case Some(other) => audit(transactionName = "feedback-survey",
-        detail = Map("origin" -> origin,
-          "whatWasTheMainService" -> whatWasTheMainService.getOrElse(""),
-          "whatWasTheMainServiceOther" -> other),
-        eventType = eventTypeSuccess)
-      case None => audit(transactionName = "feedback-survey",
-        detail = Map("origin" -> origin,
-          "whatWasTheMainService" -> whatWasTheMainService.getOrElse("")),
-        eventType = eventTypeSuccess)
-    }
-    Redirect(routes.FeedbackSurveyController.ableToDo(origin))
-  }
+  def surveySubmit(origin: String): Action[Survey] = Action (parse.form(formMappings.surveyForm)) { implicit request =>
+    val whatWasTheMainService = request.body.mainService.getOrElse("")
+    val whatWasTheMainServiceOther = request.body.mainServiceOther.getOrElse("")
+    val mainThing = request.body.mainThing.getOrElse("")
+    val ableToDoWhatNeeded = request.body.ableToDoWhatNeeded.getOrElse("")
+    val howEasyWasIt = request.body.howEasyWasIt.getOrElse("")
+    val whyDidYouGiveThisScore = request.body.whyDidYouGiveThisScore.getOrElse("")
+    val howDidYouFeel = request.body.howDidYouFeel.getOrElse("")
 
-  def mainThing(origin: String): Action[AnyContent] = Action { implicit request =>
-    Ok(html.feedbackSurvey.mainThing(formMappings.mainThingForm, origin))
-  }
+    var splunkElements = Map.empty[String, String]
 
-  def mainThingContinue(origin: String): Action[MainThing] = Action (parse.form(formMappings.mainThingForm)) { implicit request =>
-    audit(transactionName = "feedback-survey",
-      detail = Map("origin" -> origin,
-        "whatWastheMainThing" -> request.body.mainThing.getOrElse("")),
-      eventType = eventTypeSuccess)
-    Redirect(routes.FeedbackSurveyController.ableToDo(origin))
-  }
+    if (origin.nonEmpty)
+      splunkElements += "origin" -> origin
+    if (whatWasTheMainService.nonEmpty)
+      splunkElements += "whatWasTheMainService" -> whatWasTheMainService
+    if (whatWasTheMainServiceOther.nonEmpty)
+      splunkElements += "whatWasTheMainServiceOther" -> whatWasTheMainServiceOther
+    if (mainThing.nonEmpty)
+      splunkElements += "mainThing" -> mainThing
+    if (ableToDoWhatNeeded.nonEmpty)
+      splunkElements += "ableToDoWhatNeeded" -> ableToDoWhatNeeded
+    if (howEasyWasIt.nonEmpty)
+      splunkElements += "howEasyWasIt" -> howEasyWasIt
+    if (whyDidYouGiveThisScore.nonEmpty)
+      splunkElements += "whyDidYouGiveThisScore" -> whyDidYouGiveThisScore
+    if (howDidYouFeel.nonEmpty)
+      splunkElements += "howDidYouFeel" -> howDidYouFeel
 
-  def ableToDo(origin: String): Action[AnyContent] = Action { implicit request =>
-    val backlinkUrl = originService.taxAccount(Origin(origin)) match {
-      case Some("BTA") => routes.FeedbackSurveyController.mainService(origin).url
-      case None => routes.FeedbackSurveyController.mainThing(origin).url
-      }
-    Ok(html.feedbackSurvey.ableToDo(formMappings.ableToDoForm, origin, backlinkUrl))
-  }
-
-  def ableToDoContinue(origin: String): Action[AbleToDo] = Action (parse.form(formMappings.ableToDoForm)) { implicit request =>
-    val ableToDoWhatNeeded = request.body.ableToDoWhatNeeded
-    audit(transactionName = "feedback-survey",
-      detail = Map("origin" -> origin,
-        "ableToDoWhatNeeded" -> ableToDoWhatNeeded.getOrElse("")),
-      eventType = eventTypeSuccess)
-    Redirect(routes.FeedbackSurveyController.howEasyWasIt(origin))
-  }
-  
-  def howEasyWasIt(origin: String): Action[AnyContent] = Action { implicit request =>
-    Ok(html.feedbackSurvey.howEasyWasIt(formMappings.howEasyWasItForm, origin))
-  }
-
-  def howEasyWasItContinue(origin: String): Action[HowEasyWasIt] =
-    Action (parse.form(formMappings.howEasyWasItForm)) { implicit request =>
-      val howEasyWasIt = request.body.howEasyWasIt
-      val whyDidYouGiveThisScore = request.body.whyDidYouGiveThisScore
-      audit(transactionName = "feedback-survey", detail = Map(
-        "origin" -> origin,
-        "howEasyWasIt" -> howEasyWasIt.getOrElse(""),
-        "whyDidYouGiveThisScore" -> whyDidYouGiveThisScore.getOrElse("")), eventType = eventTypeSuccess)
-      Redirect(routes.FeedbackSurveyController.howDidYouFeel(origin))
-    }
-
-  def howDidYouFeel(origin: String): Action[AnyContent] = Action { implicit request =>
-    Ok(html.feedbackSurvey.howDidYouFeel(formMappings.howDidYouFeelForm, origin))
-  }
-
-  def howDidYouFeelContinue(origin: String): Action[HowDidYouFeel] = Action (parse.form(formMappings.howDidYouFeelForm)) { implicit request =>
-    audit(transactionName = "feedback-survey",
-      detail = Map("origin" -> origin,
-        "howDidYouFeel" -> request.body.howDidYouFeel.getOrElse("")),
-      eventType = eventTypeSuccess)
+    audit(transactionName = "feedback-survey", detail = splunkElements, eventType = eventTypeSuccess)
 
     originService.customFeedbackUrl(Origin(origin)) match {
       case Some(x) => Redirect(x)

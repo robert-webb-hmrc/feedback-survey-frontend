@@ -22,8 +22,7 @@
 @(urLinkUrl: Option[String], origin: String)(implicit request: Request[_], messages: play.api.i18n.Messages, templateRenderer: TemplateRenderer)
 
 @uk.gov.hmrc.feedbacksurveyfrontend.views.html.main_template(
-  title = "thankYou.thank_you_for_your_feedback",
-  backlinkUrl = controllers.routes.FeedbackSurveyController.howDidYouFeel(origin).url
+  title = "thankYou.thank_you_for_your_feedback"
 ) {
 
   <h1 id="thankYou" class="heading-large">

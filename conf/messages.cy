@@ -4,6 +4,7 @@ gov_uk=GOV.UK
 generic.yes=Iawn
 generic.no=Na
 generic.continue=Parhau
+generic.submit=Gyflwyno
 generic.error.title=Mae’n ddrwg gennym, rydym yn cael anawsterau technegol
 generic.error.status=Mae problem gyda’ch cais.
 generic.unauthorised.heading=Mae’n ddrwg gennym, rydym yn cael anawsterau technegol
@@ -19,7 +20,8 @@ give_feedback=Rhoi adborth
 mainService.what_was_the_main_service_you_used_today=What was the main service you used today?
 mainService.we_use_your_feedback_to_improve_our_services_=Rydym yn defnyddio’ch adborth i wella ein gwasanaethau. I ddeall eich adborth yn well, efallai y byddwn yn ei gysylltu â gwybodaeth arall sydd gennym amdanoch, megis rhywedd ac oedran.
 mainService.see_the_hmrc_privacy_notice_=Gweler <a href="{0}" target="_blank">Hysbysiad Preifatrwydd CThEM</a> i gael gwybod sut yr ydym yn casglu, defnyddio a diogelu’ch gwybodaeth bersonol.
-mainService.the_survey_takes_about_1_minute_to_complete_=Mae’r arolwg yn cymryd tua 1 munud i’w lenwi. Mae 4 cwestiwn ac maent i gyd yn ddewisol.
+mainService.the_survey_takes_about_1_minute_to_complete_5=Mae’r arolwg yn cymryd tua 1 munud i’w lenwi. Mae 5 cwestiwn ac maent i gyd yn ddewisol.
+mainService.the_survey_takes_about_1_minute_to_complete_4=Mae’r arolwg yn cymryd tua 1 munud i’w lenwi. Mae 4 cwestiwn ac maent i gyd yn ddewisol.
 mainService.what_was_the_main_service_you_used_today=Beth oedd y prif wasanaeth a ddefnyddioch heddiw?
 mainService.self_assessment=Hunanasesiad
 mainService.PAYE_for_employers=TWE ar gyfer cyflogwyr

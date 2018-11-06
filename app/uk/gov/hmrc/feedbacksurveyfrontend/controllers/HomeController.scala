@@ -40,8 +40,8 @@ trait HomeController extends FrontendController {
     implicit request =>
       if(originService.isValid(Origin(origin.origin))) {
         originService.taxAccount(origin) match {
-          case Some(taxAccount) => Redirect(routes.FeedbackSurveyController.mainService(origin.origin))
-          case _ => Redirect(routes.FeedbackSurveyController.mainThing(origin.origin))
+          case Some(taxAccount) => Redirect(routes.FeedbackSurveyController.survey(origin.origin, Some(taxAccount)))
+          case _ => Redirect(routes.FeedbackSurveyController.survey(origin.origin, None))
         }
       } else {
         Ok(uk.gov.hmrc.feedbacksurveyfrontend.views.html.error_template("global_errors.title", "global_errors.heading", "global_errors.message"))

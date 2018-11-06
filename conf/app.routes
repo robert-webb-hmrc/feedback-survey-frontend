@@ -1,29 +1,10 @@
-# microservice specific routes
-GET         /assets/*file      controllers.Assets.versioned(path="/public", file: Asset)
-GET         /                  controllers.HomeController.start(origin: Origin)
+GET         /assets/*file       controllers.Assets.versioned(path="/public", file: Asset)
+GET         /                   controllers.HomeController.start(origin: Origin)
 
-# Feedback Survey specific routes
-GET        /mainService/:origin               controllers.FeedbackSurveyController.mainService(origin: String)
-POST       /mainService/:origin               controllers.FeedbackSurveyController.mainServiceContinue(origin: String)
-GET        /mainThing/:origin                 controllers.FeedbackSurveyController.mainThing(origin: String)
+GET         /:origin/           controllers.FeedbackSurveyController.survey(origin: String, taxAccount:Option[String])
+POST        /:origin/           controllers.FeedbackSurveyController.surveySubmit(origin: String)
 
-GET        /mainService/:origin               controllers.FeedbackSurveyController.mainService(origin: String)
-POST       /mainService/:origin               controllers.FeedbackSurveyController.mainServiceContinue(origin: String)
-GET        /mainThing/:origin                 controllers.FeedbackSurveyController.mainThing(origin: String)
-POST       /mainThing/:origin                 controllers.FeedbackSurveyController.mainThingContinue(origin: String)
+GET        /thankYou            controllers.FeedbackSurveyController.thankYou(origin: String)
 
-
-GET        /ableToDo/:origin                  controllers.FeedbackSurveyController.ableToDo(origin: String)
-POST       /ableToDo/:origin                  controllers.FeedbackSurveyController.ableToDoContinue(origin: String)
-
-GET        /howEasyWasIt/:origin              controllers.FeedbackSurveyController.howEasyWasIt(origin: String)
-POST       /howEasyWasIt/:origin              controllers.FeedbackSurveyController.howEasyWasItContinue(origin: String)
-
-GET        /howDidYouFeel/:origin       controllers.FeedbackSurveyController.howDidYouFeel(origin: String)
-POST       /howDidYouFeel/:origin       controllers.FeedbackSurveyController.howDidYouFeelContinue(origin: String)
-
-GET        /thankYou                          controllers.FeedbackSurveyController.thankYou(origin: String)
-
-
-GET        /lang/enGb                         controllers.LanguageController.enGb(redirectUrl: ContinueUrl)
-GET        /lang/cyGb                         controllers.LanguageController.cyGb(redirectUrl: ContinueUrl)
+GET        /lang/enGb           controllers.LanguageController.enGb(redirectUrl: ContinueUrl)
+GET        /lang/cyGb           controllers.LanguageController.cyGb(redirectUrl: ContinueUrl)

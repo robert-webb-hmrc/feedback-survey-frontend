@@ -40,9 +40,11 @@ textarea {
   float: right;
 }
 
-.equal-space .left.very-difficult {
+.equal-space .left.very-difficult,
+.equal-space .left.very-dissatisfied {
   display: none;
 }
+
 
 @media screen and (max-width:400px) {
 
@@ -55,11 +57,13 @@ textarea {
     margin-left: 0em;
   }
 
-  .equal-space .left.very-difficult {
+  .equal-space .left.very-difficult,
+  .equal-space .left.very-dissatisfied {
     display: block;
   }
 
-  .equal-space .right.very-difficult {
+  .equal-space .right.very-difficult,
+  .equal-space .right.very-dissatisfied {
     display: none;
   }
 }
