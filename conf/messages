@@ -50,3 +50,55 @@ thankYou.we_will_use_your_feedback_to_make_our_services_better=We will use your 
 thankYou.help_improve_gov_uk=Help improve <a href="{0}" target="_blank">GOV.UK</a>
 thankYou.gov_uk_needs_your_help=<a href="{0}" target="_blank">GOV.UK</a> needs your help to improve and to make sure the website works well for the people who need it.
 thankYou.get_involved_in_making_=<a href="{0}" target="_blank">Get involved in making government services better</a>
+
+# Old survey
+feedbackSurvey.giveFeedBack=Give feedback
+feedbackSurvey.giveFeedBackPageTitle.page1.question1=Were you able to do what you needed to do today?
+feedbackSurvey.giveFeedBackPageTitle.page2.question1=What did you try before using this service?
+feedbackSurvey.giveFeedBackPageTitle.page3.question1=Overall, how did you feel about the service you received today?
+feedbackSurvey.giveFeedBackPageTitle.page4.question1=How likely are you to recommend this service to a friend or colleague if they needed to do the same thing?
+feedbackSurvey.giveFeedBackPageTitle.page5.title=Thank you for your feedback
+
+feedbackSurvey.page1.title=Give feedback
+feedbackSurvey.page1.para1=All questions in the survey are optional.
+feedbackSurvey.page1.para2=We use your feedback to make our services better.
+feedbackSurvey.page1.question1=Were you able to do what you needed to do today?
+
+feedbackSurvey.page2.question1=What did you try before using this service?
+feedbackSurvey.page2.question1.formhint=Select all that apply.
+feedbackSurvey.page2.question1.option1=Telephoned HMRC
+feedbackSurvey.page2.question1.option2=Wrote to HMRC
+feedbackSurvey.page2.question1.option3=Completed an online form
+feedbackSurvey.page2.question1.option4=Read guidance on GOV.UK
+feedbackSurvey.page2.question1.option5=Spoke to your employer, agent or accountant
+feedbackSurvey.page2.question1.option6=Spoke to a friend or family member
+feedbackSurvey.page2.question1.option7=None of these
+
+
+feedbackSurvey.page3.question1=Overall, how did you feel about the service you received today?
+feedbackSurvey.page3.question1.option1=Very satisfied
+feedbackSurvey.page3.question1.option2=Satisfied
+feedbackSurvey.page3.question1.option3=Neither satisfied nor dissatisfied
+feedbackSurvey.page3.question1.option4=Dissatisfied
+feedbackSurvey.page3.question1.option5=Very dissatisfied
+
+feedbackSurvey.page4.question1=How likely are you to recommend this service to a friend or colleague if they needed to do the same thing?
+feedbackSurvey.page4.question1.option1=10 Very likely
+feedbackSurvey.page4.question1.option2=9
+feedbackSurvey.page4.question1.option3=8
+feedbackSurvey.page4.question1.option4=7
+feedbackSurvey.page4.question1.option5=6
+feedbackSurvey.page4.question1.option6=5
+feedbackSurvey.page4.question1.option7=4
+feedbackSurvey.page4.question1.option8=3
+feedbackSurvey.page4.question1.option9=2
+feedbackSurvey.page4.question1.option10=1
+feedbackSurvey.page4.question1.option11=0 Very unlikely
+feedbackSurvey.page4.question2=Why did you give this rating?
+feedbackSurvey.page4.question2.labelhint=Do not include any personal or financial information like your National Insurance number or bank details.
+
+feedbackSurvey.page5.title=Thank you for your feedback
+feedbackSurvey.page5.para1=Please <a href="{0}">join the HM Revenue and Customs (HMRC) user panel</a>.
+feedbackSurvey.page5.para2=By taking part in user research you will help us improve our service.
+
+feedbackSurvey.gov.uk=GOV.UK

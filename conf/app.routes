@@ -4,6 +4,15 @@ GET         /                   controllers.HomeController.start(origin: Origin)
 GET         /:origin/           controllers.FeedbackSurveyController.survey(origin: String, taxAccount:Option[String])
 POST        /:origin/           controllers.FeedbackSurveyController.surveySubmit(origin: String)
 
+GET        /ableToDo/:origin                  controllers.FeedbackSurveyController.ableToDo(origin: String)
+POST       /ableToDo/:origin                  controllers.FeedbackSurveyController.ableToDoContinue(origin: String)
+GET        /usingService/:origin              controllers.FeedbackSurveyController.usingService(origin: String)
+POST       /usingService/:origin              controllers.FeedbackSurveyController.usingServiceContinue(origin: String)
+GET        /aboutService/:origin              controllers.FeedbackSurveyController.aboutService(origin: String)
+POST       /aboutService/:origin              controllers.FeedbackSurveyController.aboutServiceContinue(origin: String)
+GET        /recommendService/:origin          controllers.FeedbackSurveyController.recommendService(origin: String)
+POST       /recommendService/:origin          controllers.FeedbackSurveyController.recommendServiceContinue(origin: String)
+
 GET        /thankYou            controllers.FeedbackSurveyController.thankYou(origin: String)
 
 GET        /lang/enGb           controllers.LanguageController.enGb(redirectUrl: ContinueUrl)

@@ -36,7 +36,9 @@ class HomeControllerTest extends UnitTestTraits {
       val originService = new OriginService {
         override lazy val originConfigItems = List(
           OriginConfigItem(Some("TOKEN1"), None, None),
-          OriginConfigItem(Some("TOKEN2"), None, "BTA")
+          OriginConfigItem(Some("TOKEN2"), None, "BTA"),
+          OriginConfigItem(Some("TOKEN3"), None, "OTHER"),
+          OriginConfigItem(Some("TOKEN4"), None, "OLDSURVEY")
         )
       }
     }
@@ -55,11 +57,25 @@ class HomeControllerTest extends UnitTestTraits {
       redirectLocation(result) shouldBe Some("/feedback-survey/TOKEN1/")
     }
 
-    "redirect to survey when origin is valid and has BTA taxAccount" in {
+    "redirect to start when origin is valid and has BTA taxAccount" in {
       val controllerUnderTest = buildFakeHomeController
       val result = controllerUnderTest.start(Origin("TOKEN2")).apply(FakeRequest("GET", ""))
       status(result) shouldBe SEE_OTHER
       redirectLocation(result) shouldBe Some("/feedback-survey/TOKEN2/?taxAccount=BTA")
+    }
+
+    "redirect to start when origin is valid and has OTHER taxAccount" in {
+      val controllerUnderTest = buildFakeHomeController
+      val result = controllerUnderTest.start(Origin("TOKEN3")).apply(FakeRequest("GET", ""))
+      status(result) shouldBe SEE_OTHER
+      redirectLocation(result) shouldBe Some("/feedback-survey/TOKEN3/?taxAccount=OTHER")
+    }
+
+    "redirect to abletoDo when origin is valid and has OLDSURVEY taxAccount" in {
+      val controllerUnderTest = buildFakeHomeController
+      val result = controllerUnderTest.start(Origin("TOKEN4")).apply(FakeRequest("GET", ""))
+      status(result) shouldBe SEE_OTHER
+      redirectLocation(result) shouldBe Some("/feedback-survey/ableToDo/TOKEN4")
     }
   }
 }

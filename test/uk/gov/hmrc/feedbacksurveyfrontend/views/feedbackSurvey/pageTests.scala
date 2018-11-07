@@ -141,4 +141,38 @@ class pageTests extends UnitTestTraits with HtmlUtils {
       document.body.getElementsByClass("heading-large").text should include("Service unavailable")
     }
   }
+
+  "render ableToDo page correctly" in {
+    val document: Document = TestLookupController.ableToDo("VALID_ORIGIN")(testRequest(page = "ableToDo"))
+    document.getElementById("intro").text shouldBe Messages("feedbackSurvey.page1.para1")
+    document.getElementById("gdpr").text shouldBe Messages("feedbackSurvey.page1.para2")
+    document.getElementById("ableToDoWhatNeeded_legend").text should include(Messages("feedbackSurvey.page1.question1"))
+    document.getElementById("ableToDoWhatNeeded-yes").text shouldBe ""
+    document.getElementById("ableToDoWhatNeeded-no").text shouldBe ""
+  }
+
+  "render usingService page correctly" in {
+    val document: Document = TestLookupController.usingService("VALID_ORIGIN")(testRequest(page = "usingService"))
+    document.getElementById("beforeUsingThisService").text shouldBe Messages("feedbackSurvey.page2.question1")
+  }
+
+  "render aboutService page correctly" in {
+    val document: Document = TestLookupController.aboutService("VALID_ORIGIN")(testRequest(page = "aboutService"))
+    document.getElementById("serviceReceived").text shouldBe Messages("feedbackSurvey.page3.question1")
+  }
+
+  "render recommendService page correctly" in {
+    val document: Document = TestLookupController.recommendService("VALID_ORIGIN")(testRequest(page = "recommendService"))
+    document.getElementById("reasonForRatingHeader").text shouldBe Messages("feedbackSurvey.page4.question2")
+  }
+
+  "render thankYou page correctly with valid origin" in {
+    val document: Document = TestLookupController.thankYou("VALID_ORIGIN").apply(testRequest(page = "thankYou"))
+    document.getElementById("thankYou").text shouldBe Messages("feedbackSurvey.page5.title")
+  }
+
+  "render error page correctly with invalid origin" in {
+    val document: Document = TestLookupController.thankYou("INVALID_ORIGIN").apply(testRequest(page = "thankYou"))
+    document.body.getElementsByClass("heading-large").text should include("Service unavailable")
+  }
 }

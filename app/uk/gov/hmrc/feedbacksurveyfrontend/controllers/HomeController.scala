@@ -40,6 +40,7 @@ trait HomeController extends FrontendController {
     implicit request =>
       if(originService.isValid(Origin(origin.origin))) {
         originService.taxAccount(origin) match {
+          case Some("OLDSURVEY") => Redirect(routes.FeedbackSurveyController.ableToDo(origin.origin))
           case Some(taxAccount) => Redirect(routes.FeedbackSurveyController.survey(origin.origin, Some(taxAccount)))
           case _ => Redirect(routes.FeedbackSurveyController.survey(origin.origin, None))
         }

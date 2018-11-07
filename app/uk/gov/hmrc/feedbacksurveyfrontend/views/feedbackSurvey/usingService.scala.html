@@ -1,0 +1,75 @@
+@*
+ * Copyright 2018 HM Revenue & Customs
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *@
+
+@import views.helpers._
+@import views.html.helpers._
+@import models.feedbackSurveyModels._
+@import uk.gov.hmrc.renderer.TemplateRenderer
+
+
+@(page2: Form[models.feedbackSurveyModels.UsingService], origin: String)(implicit request: Request[_], messages: play.api.i18n.Messages, templateRenderer: TemplateRenderer)
+
+@uk.gov.hmrc.feedbacksurveyfrontend.views.html.main_template(
+  title = "feedbackSurvey.giveFeedBackPageTitle.page2.question1",
+  backlinkUrl = controllers.routes.FeedbackSurveyController.ableToDo(origin).url
+) {
+  <h1 id="beforeUsingThisService" class="heading-large">@Messages("feedbackSurvey.page2.question1")</h1>
+  @uk.gov.hmrc.play.views.html.helpers.form(action = controllers.routes.FeedbackSurveyController.usingServiceContinue(origin)){
+    <form>
+      <div class="form-group">
+        <fieldset class="margin-bottom">
+
+          <legend class="visually-hidden">
+            @Messages("feedbackSurvey.giveFeedBackPageTitle.page2.question1")
+          </legend>
+
+          <p class="body-text">@Messages("feedbackSurvey.page2.question1.formhint")</p>
+
+          <div class="multiple-choice">
+            <input id="beforeUsingThisService_telephonedHMRC" type="checkbox" class="checkboxgroup-clear-two checkboxgroup-one" name="beforeUsingThisService[]" value="telephonedHMRC">
+            <label for="beforeUsingThisService_telephonedHMRC">@Messages("feedbackSurvey.page2.question1.option1")</label>
+          </div>
+          <div class="multiple-choice">
+            <input id="beforeUsingThisService_wroteToHMRC" type="checkbox" class="checkboxgroup-clear-two checkboxgroup-one" name="beforeUsingThisService[]" value="wroteToHMRC">
+            <label for="beforeUsingThisService_wroteToHMRC">@Messages("feedbackSurvey.page2.question1.option2")</label>
+          </div>
+          <div class="multiple-choice">
+            <input id="beforeUsingThisService_completedAnOnlineForm" type="checkbox" class="checkboxgroup-clear-two checkboxgroup-one" name="beforeUsingThisService[]" value="completedAnOnlineForm">
+            <label for="beforeUsingThisService_completedAnOnlineForm">@Messages("feedbackSurvey.page2.question1.option3")</label>
+          </div>
+          <div class="multiple-choice">
+            <input id="beforeUsingThisService_readGuidanceOnGovUK" type="checkbox" class="checkboxgroup-clear-two checkboxgroup-one" name="beforeUsingThisService[]" value="readGuidanceOnGovUK">
+            <label for="beforeUsingThisService_readGuidanceOnGovUK">@Messages("feedbackSurvey.page2.question1.option4")</label>
+          </div>
+          <div class="multiple-choice">
+            <input id="beforeUsingThisService_spokeToYourEmployerAgentOrAccountant" type="checkbox" class="checkboxgroup-clear-two checkboxgroup-one" name="beforeUsingThisService[]" value="spokeToYourEmployerAgentOrAccountant">
+            <label for="beforeUsingThisService_spokeToYourEmployerAgentOrAccountant">@Messages("feedbackSurvey.page2.question1.option5")</label>
+          </div>
+          <div class="multiple-choice">
+            <input id="beforeUsingThisService_spokeToAFriendOrFamilyMember" type="checkbox" class="checkboxgroup-clear-two checkboxgroup-one" name="beforeUsingThisService[]" value="spokeToAFriendOrFamilyMember">
+            <label for="beforeUsingThisService_spokeToAFriendOrFamilyMember">@Messages("feedbackSurvey.page2.question1.option6")</label>
+          </div>
+          <div class="multiple-choice">
+            <input id="beforeUsingThisService_noneOfThese" type="checkbox" class="checkboxgroup-clear-one checkboxgroup-two" name="beforeUsingThisService[]" value="noneOfThese">
+            <label for="beforeUsingThisService_noneOfThese">@Messages("feedbackSurvey.page2.question1.option7")</label>
+          </div>
+
+        </fieldset>
+      </div>
+      <input id="save-and-continue" type="submit" class="button" value=@Messages("generic.continue") />
+    </form>
+  }
+}

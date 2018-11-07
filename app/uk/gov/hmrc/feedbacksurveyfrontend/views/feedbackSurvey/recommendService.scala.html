@@ -1,0 +1,101 @@
+@*
+ * Copyright 2018 HM Revenue & Customs
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *@
+
+@import views.helpers._
+@import views.html.helpers._
+@import models.feedbackSurveyModels._
+@import uk.gov.hmrc.renderer.TemplateRenderer
+
+
+@(page4: Form[models.feedbackSurveyModels.RecommendService], origin: String)(implicit request: Request[_], messages: play.api.i18n.Messages, templateRenderer: TemplateRenderer)
+
+@uk.gov.hmrc.feedbacksurveyfrontend.views.html.main_template(
+  title = "feedbackSurvey.giveFeedBackPageTitle.page4.question1",
+  backlinkUrl = controllers.routes.FeedbackSurveyController.aboutService(origin).url
+) {
+  <h1 id="recommendRating" class="heading-large">@Messages("feedbackSurvey.page4.question1")</h1>
+  @uk.gov.hmrc.play.views.html.helpers.form(action = controllers.routes.FeedbackSurveyController.recommendServiceContinue(origin)){
+    <form>
+      <div class="form-group">
+        <fieldset class="margin-bottom">
+
+          <legend class="visually-hidden">
+            @Messages("feedbackSurvey.giveFeedBackPageTitle.page4.question1")
+          </legend>
+
+          <div class="multiple-choice">
+            <input id="recommendRating-10" type="radio" name="recommendRating" value="10">
+            <label for="recommendRating-10">@Messages("feedbackSurvey.page4.question1.option1")</label>
+          </div>
+          <div class="multiple-choice">
+            <input id="recommendRating-9" type="radio" name="recommendRating" value="9">
+            <label for="recommendRating-9">@Messages("feedbackSurvey.page4.question1.option2")</label>
+          </div>
+          <div class="multiple-choice">
+            <input id="recommendRating-8" type="radio" name="recommendRating" value="8">
+            <label for="recommendRating-8">@Messages("feedbackSurvey.page4.question1.option3")</label>
+          </div>
+          <div class="multiple-choice">
+            <input id="recommendRating-7" type="radio" name="recommendRating" value="7">
+            <label for="recommendRating-7">@Messages("feedbackSurvey.page4.question1.option4")</label>
+          </div>
+          <div class="multiple-choice">
+            <input id="recommendRating-6" type="radio" name="recommendRating" value="6">
+            <label for="recommendRating-6">@Messages("feedbackSurvey.page4.question1.option5")</label>
+          </div>
+          <div class="multiple-choice">
+            <input id="recommendRating-5" type="radio" name="recommendRating" value="5">
+            <label for="recommendRating-5">@Messages("feedbackSurvey.page4.question1.option6")</label>
+          </div>
+          <div class="multiple-choice">
+            <input id="recommendRating-4" type="radio" name="recommendRating" value="4">
+            <label for="recommendRating-4">@Messages("feedbackSurvey.page4.question1.option7")</label>
+          </div>
+          <div class="multiple-choice">
+            <input id="recommendRating-3" type="radio" name="recommendRating" value="3">
+            <label for="recommendRating-3">@Messages("feedbackSurvey.page4.question1.option8")</label>
+          </div>
+          <div class="multiple-choice">
+            <input id="recommendRating-2" type="radio" name="recommendRating" value="2">
+            <label for="recommendRating-2">@Messages("feedbackSurvey.page4.question1.option9")</label>
+          </div>
+          <div class="multiple-choice">
+            <input id="recommendRating-1" type="radio" name="recommendRating" value="1">
+            <label for="recommendRating-1">@Messages("feedbackSurvey.page4.question1.option10")</label>
+          </div>
+          <div class="multiple-choice">
+            <input id="recommendRating-0" type="radio" name="recommendRating" value="0">
+            <label for="recommendRating-0">@Messages("feedbackSurvey.page4.question1.option11")</label>
+          </div>
+        </fieldset>
+
+        <fieldset>
+
+          <h2 id="reasonForRatingHeader" class="heading-large">@Messages("feedbackSurvey.page4.question2")</h2>
+          <legend class="visually-hidden">
+            @Messages("feedbackSurvey.page4.question2")
+          </legend>
+
+          <label class="form-label" for="textarea">
+            @Messages("feedbackSurvey.page4.question2.labelhint")
+          </label>
+          <textarea class="form-control form-control-3-4 feedback-box" name="reasonForRating" id="textarea" rows="6" maxlength="1000"></textarea>
+        </fieldset>
+      </div>
+      <input id="save-and-continue" type="submit" class="button" value=@Messages("generic.continue") />
+    </form>
+  }
+}

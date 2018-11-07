@@ -1,0 +1,70 @@
+@*
+ * Copyright 2018 HM Revenue & Customs
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *@
+
+@import views.helpers._
+@import views.html.helpers._
+@import models.feedbackSurveyModels._
+@import uk.gov.hmrc.renderer.TemplateRenderer
+
+
+@(page3: Form[models.feedbackSurveyModels.AboutService], origin: String)(implicit request: Request[_], messages: play.api.i18n.Messages, templateRenderer: TemplateRenderer)
+
+@uk.gov.hmrc.feedbacksurveyfrontend.views.html.main_template(
+  title = "feedbackSurvey.giveFeedBackPageTitle.page3.question1",
+  backlinkUrl = controllers.routes.FeedbackSurveyController.usingService(origin).url
+) {
+  <h1 id="serviceReceived" class="heading-large">@Messages("feedbackSurvey.page3.question1")</h1>
+  @uk.gov.hmrc.play.views.html.helpers.form(action = controllers.routes.FeedbackSurveyController.aboutServiceContinue(origin)){
+    <form>
+      <div class="form-group">
+        <fieldset>
+
+          <legend class="visually-hidden">
+            @Messages("feedbackSurvey.giveFeedBackPageTitle.page3.question1")
+          </legend>
+
+          <div class="multiple-choice">
+            <input id="serviceReceived-5" type="radio" name="serviceReceived" value="5">
+            <label for="serviceReceived-5">@Messages("feedbackSurvey.page3.question1.option1")</label>
+          </div>
+
+          <div class="multiple-choice">
+            <input id="serviceReceived-4" type="radio" name="serviceReceived" value="4">
+            <label for="serviceReceived-4">@Messages("feedbackSurvey.page3.question1.option2")</label>
+          </div>
+
+          <div class="multiple-choice">
+            <input id="serviceReceived-3" type="radio" name="serviceReceived" value="3">
+            <label for="serviceReceived-3">@Messages("feedbackSurvey.page3.question1.option3")</label>
+          </div>
+
+          <div class="multiple-choice">
+            <input id="serviceReceived-2" type="radio" name="serviceReceived" value="2">
+            <label for="serviceReceived-2">@Messages("feedbackSurvey.page3.question1.option4")</label>
+          </div>
+
+          <div class="multiple-choice">
+            <input id="serviceReceived-1" type="radio" name="serviceReceived" value="1">
+            <label for="serviceReceived-1">@Messages("feedbackSurvey.page3.question1.option5")</label>
+          </div>
+
+        </fieldset>
+      </div>
+      <input id="save-and-continue" type="submit" class="button" role="button" value=@Messages("generic.continue") />
+    </form>
+
+  }
+}
